@@ -1,0 +1,11 @@
+[Unit]
+Description=Send YaCy Stats to Graphite
+Wants=yacy.service
+After=yacy.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/yacy-graphite.py
+
+[Install]
+WantedBy=yacy.service
