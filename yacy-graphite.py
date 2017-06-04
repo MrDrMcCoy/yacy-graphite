@@ -8,9 +8,9 @@ import re
 
 # config
 graphite_port = 2003
-graphite_host = 'graphite.awesomegeek.com'
+graphite_host = '<hostname or IP>'
 yacy_port = 8090
-yacy_host = 'yacy.awesomegeek.com'
+yacy_host = '<hostname or IP>'
 yacy_url = 'http://' + yacy_host + ':' + str(yacy_port) + '/Network.xml'
 prefix = ''
 
