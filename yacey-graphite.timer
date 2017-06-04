@@ -1,0 +1,9 @@
+[Unit]
+Description=Send YaCy stats to Graphite
+
+[Timer]
+OnCalendar=10s
+Unit=yacey-graphite.service
+
+[Install]
+WantedBy=yacey-graphite.service
