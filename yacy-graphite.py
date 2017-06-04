@@ -8,9 +8,9 @@ import re
 
 # config
 graphite_port = 2003
-graphite_host = ''
+graphite_host = 'graphite.awesomegeek.com'
 yacy_port = 8090
-yacy_host = ''
+yacy_host = 'yacy.awesomegeek.com'
 yacy_url = 'http://' + yacy_host + ':' + str(yacy_port) + '/Network.xml'
 prefix = ''
 
@@ -20,7 +20,6 @@ xml_root = xmltree.parse(urllib2.urlopen(yacy_url)).getroot()
 
 
 def send_graphite(message):
-    print(message)
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((graphite_host, graphite_port))
     s.send(message)
@@ -38,7 +37,7 @@ for category in xml_root:
                 category.tag + '.' + \
                 metric.tag + ' ' + \
                 metric.text + ' ' + \
-                timestamp
+                timestamp + '\n'
             # remove duplicate dots
             phase2 = re.sub('\.+', '.', phase1)
             # remove leading dots
